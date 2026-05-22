@@ -13,7 +13,7 @@ export function Projects() {
         'Utilized convolutional neural networks to conduct sentiment analysis on Airbus Tweets',
       tags: ['Python', 'TensorFlow', 'NLP'],
       color: '#0259DD',
-      pdfLink: '/pdfs/ITI244_Report.pdf', 
+      pdfLink: '/pdfs/IT1244 Team17 Report.pdf', 
     },
     {
       title: 'NST2062: Mind and Machine',
@@ -21,7 +21,7 @@ export function Projects() {
         'Trained TruthStormer and Vision Transformer to predict American Sign Language (ASL)',
       tags: ['Python', 'Computer Vision', 'Deep Learning'],
       color: '#FF6648',
-      pdfLink: '/pdfs/NST2062_Report.pdf', 
+      pdfLink: '', 
     },
     {
       title: 'NM3243: User Experience Design',
@@ -29,7 +29,7 @@ export function Projects() {
         'Designed a web-based interface with lo-fi prototypes for Scheduling and Video Conferencing System for Students',
       tags: ['Figma', 'UX', 'Prototyping'],
       color: '#0259DD',
-      pdfLink: '/pdfs/NM3243_Report.pdf', 
+      pdfLink: '/pdfs/TW1-03-Final.pdf', 
     },
     {
       title: 'NM3217: Principles of Visual Communication Design',
@@ -37,7 +37,7 @@ export function Projects() {
         'Created a comprehensive personal brand style guide featuring custom logo design, color palette, and visual system',
       tags: ['Illustrator', 'InDesign', 'Photoshop'],
       color: '#FF6648',
-      pdfLink: '/pdfs/NM3217_Report.pdf', 
+      pdfLink: '/pdfs/FP_W3_e1122301_JavierChin.pdf', 
     },
     {
       title: 'DSE3101: Practical Data Science for Economics',
@@ -45,7 +45,7 @@ export function Projects() {
         'Spearheaded the frontend design and deployment of a US GDP Nowcasting Dashboard with Streamlit',
       tags: ['UI', 'Python', 'Streamlit'],
       color: '#0259DD',
-      pdfLink: '/pdfs/DSE3101_Report.pdf', 
+      pdfLink: '/pdfs/DSE3101 Group Project_ Technical documentation_gg(plot).pdf', 
     },
     {
       title: 'COSC3470 Deep Learning (GU)',
@@ -53,7 +53,7 @@ export function Projects() {
         'Explored advanced neural network architectures and diffusion models during my coursework at Georgetown University.',
       tags: ['Deep Learning', 'PyTorch', 'Neural Networks'], 
       color: '#FF6648', 
-      pdfLink: '/pdfs/COSC_DeepLearning_Report.pdf', 
+      pdfLink: '/pdfs/DL Group Project.pdf', 
     },
   ];
 
