@@ -7,23 +7,37 @@ export function Navigation() {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
+    // 1. Handle the background blur threshold
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    // 2. The Optimized Intersection Observer for active sections
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        // Triggers when a section hits the vertical middle of the screen
+        rootMargin: '-50% 0px -50% 0px' 
+      }
+    );
+
+    const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -52,19 +66,22 @@ export function Navigation() {
           : 'bg-transparent'
       }`}
     >
+      {/* Centered on mobile, spread out on desktop */}
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-center md:justify-between items-center">
+        
+        {/* LOGO WRAPPER */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           onClick={() => scrollToSection('hero')}
           className="
             cursor-pointer flex items-center 
             
-            {/* 📱 MOBILE NUDGE (Unprefixed) */}
-            translate-x-[5px] 
+            {/* 📱 MOBILE NUDGE */}
+            translate-x-[0px] 
             translate-y-[0px] 
             
-            {/* 💻 DESKTOP NUDGE (md: prefixed) */}
-            md:-translate-x-[80px] 
+            {/* 💻 DESKTOP NUDGE */}
+            md:translate-x-[20px] 
             md:-translate-y-[5px]
           "
         >
@@ -75,7 +92,14 @@ export function Navigation() {
           />
         </motion.div>
 
-        <div className="hidden md:flex gap-8 items-center">
+        {/* NAV LINKS WRAPPER */}
+        <div className="
+          hidden md:flex gap-8 items-center 
+          
+          {/* 💻 DESKTOP NUDGE */}
+          md:-translate-x-[40px] 
+          md:translate-y-[10px]
+        ">
           {navItems.map((item) => (
             <motion.button
               key={item.id}
@@ -100,4 +124,5 @@ export function Navigation() {
       </div>
     </motion.nav>
   );
+}
 }
