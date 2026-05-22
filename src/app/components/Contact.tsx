@@ -34,7 +34,7 @@ export function Contact() {
       icon: Globe,
       label: 'Website',
       value: 'Basically this website',
-      link: 'https://javierchin2002.vercel.app/',
+      link: 'https://javier-cub-chin.vercel.app/',
       color: '#FF6648',
     },
     {
