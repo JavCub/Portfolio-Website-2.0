@@ -62,7 +62,7 @@ export function Contact() {
       icon: TiktokIcon,
       label: 'TikTok',
       value: '@jav.cub',
-      link: 'https://tiktok.com/@jav.cub', 
+      link: 'https://www.tiktok.com/@jav.cub?_r=1', 
       color: '#FF6648',
     },
   ];
