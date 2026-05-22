@@ -119,7 +119,7 @@ export function Hero() {
           </motion.button>
 
           <motion.a
-            href="/pdfs/Updated Resume 2026 Javier.pdf"
+            href="/pdfs/Updated Resume 2026 Javier .pdf"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
