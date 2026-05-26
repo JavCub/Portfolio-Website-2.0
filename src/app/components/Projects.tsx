@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import { ExternalLink, Github } from 'lucide-react';
-import logoPng from '../../assets/Logo.png'; 
+import { ExternalLink } from 'lucide-react';
+import logoSilhouette from '../../assets/Logo.svg';
 
 export function Projects() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
@@ -61,26 +61,24 @@ export function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="min-h-screen flex items-center py-20"
+      className="min-h-screen flex items-center py-20 overflow-hidden"
       style={{ backgroundColor: '#EDF1F5' }}
     >
       <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+        <h2
           className="text-5xl md:text-7xl font-light mb-16 text-center"
           style={{ color: '#0259DD' }}
         >
           Projects
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.a
               key={index}
-              href={project.pdfLink}
-              target="_blank" 
-              rel="noopener noreferrer" 
+              href={project.pdfLink || '#'}
+              target={project.pdfLink ? "_blank" : undefined} 
+              rel={project.pdfLink ? "noopener noreferrer" : undefined} 
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + index * 0.1 }}
@@ -88,8 +86,8 @@ export function Projects() {
               className="bg-white rounded-2xl p-8 shadow-lg cursor-pointer group relative overflow-hidden block"
             >
               {/* Animated background gradient */}
-              <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity"
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                 style={{
                   background: `linear-gradient(135deg, ${project.color} 0%, transparent 100%)`,
                 }}
@@ -114,9 +112,8 @@ export function Projects() {
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <motion.span
+                    <span
                       key={tag}
-                      whileHover={{ scale: 1.1 }}
                       className="px-4 py-2 rounded-full text-sm font-medium"
                       style={{
                         backgroundColor: project.color,
@@ -124,7 +121,7 @@ export function Projects() {
                       }}
                     >
                       {tag}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -140,28 +137,33 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Animated Logo icon */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.8 }}
-          className="mt-16 flex justify-center"
-        >
+        {/* Optimized Footer Logo */}
+        <div className="mt-28 text-center">
           <motion.img
-            src={logoPng} 
-            alt="Logo"
-            className="h-32 w-auto object-contain scale-[3.5]"
-            animate={{
+            src={logoSilhouette} 
+            alt="Logo Accent"
+            className="h-32 w-auto mx-auto will-change-transform"
+            initial={{ opacity: 0, scale: 3.5 }}
+            animate={isInView ? { 
+              opacity: 1,
               y: [0, -5, 0],
-              rotate: [0, 5, -5, 0],
-            }}
+              rotate: [0, 4, -4, 0],
+            } : {}}
             transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: 'easeInOut',
+              opacity: { delay: 0.8 },
+              y: {
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              },
+              rotate: {
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }
             }}
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
