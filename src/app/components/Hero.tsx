@@ -48,3 +48,5 @@ export function Hero() {
           transition={{
             type: 'spring',
             stiffness
+          }
+      
