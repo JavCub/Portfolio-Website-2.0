@@ -63,7 +63,7 @@ export function About() {
             <motion.img
               src={cubSilhouette}
               alt="Cub Silhouette"
-              className="h-[24rem] md:h-[32rem] w-auto object-contain will-change-transform drop-shadow-xl"
+              className="h-[16rem] md:h-[32rem] w-auto object-contain will-change-transform drop-shadow-xl"
               initial={{ 
                 opacity: 0, 
                 scale: 0.9,
