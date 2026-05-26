@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
 import { Mail, Globe, Linkedin, Github, Instagram } from 'lucide-react';
-import logoPng from '../../assets/Logo.png'; 
+import logoSilhouette from '../../assets/Logo.svg'; // Changed to .svg
 
 const TiktokIcon = ({ size = 24, style }: { size?: number; style?: React.CSSProperties }) => (
   <svg 
@@ -140,7 +140,7 @@ export function Contact() {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
                 className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: method.color }}
+                style={{ backgroundColor: '#method.color' }}
               >
                 <method.icon size={24} style={{ color: '#ffffff' }} />
               </motion.div>
@@ -166,21 +166,21 @@ export function Contact() {
         </div>
 
         {/* Animated logo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.8 }}
-          className="text-center"
-        >
+        <div className="text-center mt-24">
           <motion.img
-            src={logoPng}
+            src={logoSilhouette}
             alt="Javier Chin Logo"
-            className="h-32 w-auto mx-auto scale-[3.5]"
-            whileHover={{ scale: 1.1 }}
-            animate={{
+            className="h-32 w-auto mx-auto will-change-transform"
+            
+            initial={{ opacity: 0, scale: 3.5 }}
+            animate={isInView ? { 
+              opacity: 1,
               y: [0, -5, 0],
-            }}
+            } : {}}
+            whileHover={{ scale: 3.8 }}
             transition={{
+              opacity: { delay: 0.8 },
+              scale: { duration: 0.2 },
               y: {
                 duration: 3,
                 repeat: Infinity,
@@ -193,12 +193,12 @@ export function Contact() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 0.6 } : {}}
             transition={{ delay: 1 }}
-            className="mt-8 text-sm"
+            className="mt-12 text-sm"
             style={{ color: '#EDF1F5' }}
           >
             © 2026 Javier Chin. Designed with data & creativity...and Figma Make and Gemini.
           </motion.p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
