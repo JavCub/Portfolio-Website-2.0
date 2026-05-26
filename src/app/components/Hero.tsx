@@ -66,7 +66,7 @@ export function Hero() {
                 ease: 'easeInOut',
               }
             }}
-            className="h-56 w-56 md:h-64 md:w-64 rounded-full overflow-hidden shadow-2xl"
+            className="h-64 w-64 md:h-72 md:w-72 rounded-full overflow-hidden shadow-2xl"
           >
             <picture>
               <source srcSet={pfpAvif} type="image/avif" />
