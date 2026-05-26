@@ -63,20 +63,22 @@ export function About() {
             <motion.img
               src={cubSilhouette}
               alt="Cub Silhouette"
-              className="h-85 md:h-[32rem] w-auto object-contain will-change-transform"
+              {/* MODIFIED: Adjusted the base height bounds slightly to fit the grid naturally without overflowing */}
+              className="h-[24rem] md:h-[32rem] w-auto object-contain will-change-transform drop-shadow-xl"
               
               initial={{ 
                 opacity: 0, 
-                scale: typeof window !== 'undefined' && window.innerWidth < 768 ? 2.1 : 2.5,
-                x: typeof window !== 'undefined' && window.innerWidth < 768 ? -288 : -336 
+                scale: 0.9,
               }}
               animate={isInView ? { 
                 opacity: 1,
+                scale: 1,
                 y: [0, -15, 0], 
                 rotate: [0, 2, -2, 0]
               } : {}}
               transition={{
                 opacity: { duration: 0.8, delay: 0.2 },
+                scale: { duration: 0.8, delay: 0.2 },
                 y: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
                 rotate: { duration: 5, repeat: Infinity, ease: 'easeInOut' }
               }}
