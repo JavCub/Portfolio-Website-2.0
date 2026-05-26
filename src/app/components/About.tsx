@@ -59,7 +59,7 @@ export function About() {
           </motion.div>
 
           {/* Right Image Column */}
-          <div className="relative flex justify-center items-center -mt-16 md:mt-0">
+          <div className="relative flex justify-center items-center mt-8 md:mt-0">
             <motion.img
               src={cubSilhouette}
               alt="Cub Silhouette"
