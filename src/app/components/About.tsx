@@ -65,7 +65,6 @@ export function About() {
               alt="Cub Silhouette"
               className="h-85 md:h-[32rem] w-auto object-contain will-change-transform"
               
-              // FIXED: Hardware-accelerated layout values handled unified under Framer Motion
               initial={{ 
                 opacity: 0, 
                 scale: window?.innerWidth < 768 ? 2.1 : 2.5,
@@ -73,7 +72,6 @@ export function About() {
               }}
               animate={isInView ? { 
                 opacity: 1,
-                // Loop the fluid animation elements securely using composite layer matrices
                 y: [0, -15, 0],
                 rotate: [0, 2, -2, 0]
               } : {}}
