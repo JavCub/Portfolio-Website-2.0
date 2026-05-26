@@ -84,7 +84,7 @@ export function Navigation() {
           <img
             src={logoSilhouette}
             alt="Javier Chin Logo"
-            className="h-10 w-auto md:h-12 block object-contain origin-center md:origin-left" 
+            className="h-8 w-auto md:h-8 block object-contain origin-center md:origin-left" 
           />
         </motion.div>
 
