@@ -142,8 +142,8 @@ export function Projects() {
           <motion.img
             src={logoSilhouette} 
             alt="Logo Accent"
-            className="h-32 w-auto mx-auto will-change-transform"
-            initial={{ opacity: 0, scale: 3.5 }}
+            className="h-20 md:h-24 w-auto mx-auto will-change-transform"
+            initial={{ opacity: 0, scale: 1 }}
             animate={isInView ? { 
               opacity: 1,
               y: [0, -5, 0],
