@@ -66,12 +66,10 @@ export function Hero() {
                 ease: 'easeInOut',
               }
             }}
-            className="h-64 w-64 rounded-full overflow-hidden shadow-2xl"
+            className="h-40 w-40 md:h-48 md:w-48 rounded-full overflow-hidden shadow-2xl"
           >
             <picture>
-              {/* Primary high-performance AVIF source */}
               <source srcSet={pfpAvif} type="image/avif" />
-              {/* Fallback legacy PNG source */}
               <img
                 src={pfpPng}
                 alt="Javier Chin Profile Picture"
