@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-import logoPng from '../../assets/Logo.png';
+import logoSilhouette from '../../assets/Logo.svg'; 
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -73,20 +73,16 @@ export function Navigation() {
         <motion.div
           whileHover={{ scale: 1.05 }}
           onClick={() => scrollToSection('hero')}
-          className="
-            cursor-pointer flex items-center 
-            
-            {/* 📱 MOBILE NUDGE */}
-            translate-x-[0px] 
-            translate-y-[0px] 
-            
-            {/* 💻 DESKTOP NUDGE */}
-            md:translate-x-[20px] 
-            md:-translate-y-[5px]
-          "
+          className="cursor-pointer flex items-center will-change-transform"
+          
+          // Clean unified layout matrices for responsive positioning offsets
+          initial={{
+            x: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : 20,
+            y: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : -5
+          }}
         >
           <img
-            src={logoPng}
+            src={logoSilhouette}
             alt="Javier Chin Logo"
             className="h-20 w-auto block object-contain scale-[3] origin-center md:origin-left" 
           />
