@@ -63,10 +63,7 @@ export function About() {
             <motion.img
               src={cubSilhouette}
               alt="Cub Silhouette"
-              {/* MODIFIED: Adjusted the base height bounds slightly to fit the grid naturally without overflowing */}
               className="h-[24rem] md:h-[32rem] w-auto object-contain will-change-transform drop-shadow-xl"
-              
-              {/* MODIFIED: Removed the massive 2.5x scale multiplier and the harsh negative X translation */}
               initial={{ 
                 opacity: 0, 
                 scale: 0.9,
