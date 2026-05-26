@@ -53,7 +53,7 @@ export function Hero() {
           }}
           className="mb-8 mt-32 inline-block"
         >
-          {/* Framer Motion container handles your hover and floating animations */}
+          {/* Framer Motion container handles hover and floating animations */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             animate={{
@@ -76,7 +76,7 @@ export function Hero() {
                 src={pfpPng}
                 alt="Javier Chin Profile Picture"
                 className="h-full w-full object-cover" 
-                loading="eager" // Hero section images should load immediately without lazy-loading delays
+                loading="eager" 
               />
             </picture>
           </motion.div>
