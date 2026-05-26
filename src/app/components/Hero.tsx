@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import pfpAvif from '../../assets/PFP.avif';
 import pfpPng from '../../assets/PFP.png';
 
 export function Hero() {
@@ -40,7 +41,7 @@ export function Hero() {
       />
 
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-        {/* Animated Profile Picture */}
+        {/* Animated Profile Picture Wrapper */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
@@ -52,10 +53,8 @@ export function Hero() {
           }}
           className="mb-8 mt-32 inline-block"
         >
-          <motion.img
-            src={pfpPng}
-            alt="Javier Chin Profile Picture"
-            className="h-64 w-64 rounded-full object-cover shadow-2xl" 
+          {/* Framer Motion container handles your hover and floating animations */}
+          <motion.div
             whileHover={{ scale: 1.05 }}
             animate={{
               y: [0, -10, 0],
@@ -67,7 +66,20 @@ export function Hero() {
                 ease: 'easeInOut',
               }
             }}
-          />
+            className="h-64 w-64 rounded-full overflow-hidden shadow-2xl"
+          >
+            <picture>
+              {/* Primary high-performance AVIF source */}
+              <source srcSet={pfpAvif} type="image/avif" />
+              {/* Fallback legacy PNG source */}
+              <img
+                src={pfpPng}
+                alt="Javier Chin Profile Picture"
+                className="h-full w-full object-cover" 
+                loading="eager" // Hero section images should load immediately without lazy-loading delays
+              />
+            </picture>
+          </motion.div>
         </motion.div>
 
         <motion.h1
@@ -100,12 +112,10 @@ export function Hero() {
           Data Science and Economics @ NUS | Aspiring Product Manager | Love-hate Relationship with Marathons | Ultimate Frisbee and Floorball Enthusiasts. 
         </motion.p>
 
-        {/* CHANGED: Wrapped both buttons in a flex container */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
-          // flex-col stacks them on mobile, sm:flex-row puts them side-by-side on desktop
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <motion.button
