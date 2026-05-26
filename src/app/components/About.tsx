@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useInView } from './hooks/useInView';
-import cubSilhouette from '../../assets/Cub.png';
+import cubSilhouette from '../../assets/Cub.png'; 
 
 export function About() {
   const { ref, isInView } = useInView({ threshold: 0.2 });
@@ -14,17 +14,19 @@ export function About() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-6 md:gap-16 items-center">
+          
+          {/* Left Text Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <motion.h2
+            <h2
               className="text-5xl md:text-7xl font-light mb-8"
               style={{ color: '#0259DD' }}
             >
               About Me
-            </motion.h2>
+            </h2>
 
             <div className="space-y-6 text-lg leading-relaxed" style={{ color: '#14234B' }}>
               <p>
@@ -56,27 +58,33 @@ export function About() {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex justify-center items-center -mt-16 md:mt-0"
-          >
+          {/* Right Image Column */}
+          <div className="relative flex justify-center items-center -mt-16 md:mt-0">
             <motion.img
               src={cubSilhouette}
               alt="Cub Silhouette"
-              className="h-85 md:h-[32rem] w-auto object-contain scale-270 -translate-x-72 md:scale-250 md:-translate-x-84"
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, 2, -2, 0],
+              className="h-85 md:h-[32rem] w-auto object-contain will-change-transform"
+              
+              // FIXED: Hardware-accelerated layout values handled unified under Framer Motion
+              initial={{ 
+                opacity: 0, 
+                scale: window?.innerWidth < 768 ? 2.1 : 2.5,
+                x: window?.innerWidth < 768 ? -288 : -336 
               }}
+              animate={isInView ? { 
+                opacity: 1,
+                // Loop the fluid animation elements securely using composite layer matrices
+                y: [0, -15, 0],
+                rotate: [0, 2, -2, 0]
+              } : {}}
               transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: 'easeInOut',
+                opacity: { duration: 0.8, delay: 0.2 },
+                y: { duration: 5, repeat: Infinity, ease: 'easeInOut' },
+                rotate: { duration: 5, repeat: Infinity, ease: 'easeInOut' }
               }}
             />
-          </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
