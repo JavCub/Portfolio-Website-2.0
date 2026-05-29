@@ -107,7 +107,7 @@ export function Hero() {
           className="text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
           style={{ color: '#14234B' }}
         >
-          Data Science and Economics @ NUS | Aspiring Product Manager | Love-hate Relationship with Marathons | Ultimate Frisbee and Floorball Enthusiasts. 
+          Data Science and Economics @ NUS | Aspiring Product Manager | Love-hate Relationship with Marathons | Ultimate Frisbee and Floorball Enthusiast. 
         </motion.p>
 
         <motion.div
