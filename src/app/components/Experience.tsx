@@ -7,13 +7,22 @@ export function Experience() {
 
   const experiences = [
     {
+      title: 'OCBC',
+      subtitle: 'Digital Business Intern',
+      period: 'Aug 2026 - Present',
+      description:
+        'Contribute to end-to-end digital business lifecycle, from ideation and development to launch and adoption.',
+      skills: ['Product Management', 'Jira'],
+      isCurrent: true,
+    },
+    {
       title: 'DBS Bank',
       subtitle: 'Risk Management Intern',
-      period: 'May 2026 - Present',
+      period: 'May 2026 - Aug 2026',
       description:
         'Monitor credit risk model performance across diverse markets, implementing robust validation pipelines to guarantee model integrity.',
       skills: ['Risk Analysis', 'SQL', 'Python'],
-      isCurrent: true,
+      isCurrent: false,
     },
     {
       title: 'Monee',
